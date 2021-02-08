@@ -5,11 +5,19 @@ var methodoverride = require("method-override");
 var mongoose = require("mongoose");
 var controladorUsuario = require("./controlador/usuarioControlador");
 var controladorRegistro = require("./controlador/registroControlador");
+const dateFormat = require('dateformat');
+var { DateTime } = require('luxon');
+
+
+
+
 
 require('dotenv').config();
 
 
 console.log(process.env.DB_URL);
+console.log(dateFormat(new Date(), "d/m/yy HH:MM p"));
+console.log(new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' }));
 
 var app = express();
 
