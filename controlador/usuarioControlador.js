@@ -8,6 +8,8 @@ exports.addUsuario = function (req, callback) {
     var objUsuario = new usuarioModel();
     objUsuario.nombre = req.body.nombre;
     objUsuario.cedula = req.body.cedula;
+    objUsuario.fechaCreacion = new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' });
+    
     controladoValidar.ValidarUser(objUsuario.cedula).then((res) => {
         if (res == 0) {
             objUsuario.save(function (err, retorno) {

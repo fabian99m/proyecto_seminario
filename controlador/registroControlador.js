@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 require("../modelo/registroModel");
 require("../modelo/usuarioModel");
+const dateFormat = require('dateformat');
 
 var usuarioModel = mongoose.model("Usuario");
 var registroModel = mongoose.model("Registro");
@@ -12,6 +13,7 @@ exports.addRegistro = function (req, callback) {
   var objRegistro = new registroModel();
   objRegistro.cedula = req.body.cedula;
   objRegistro.temperatura = req.body.temperatura;
+  objRegistro.fecha = new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' });
 
   controladoValidar
     .ValidarUser(objRegistro.cedula)
