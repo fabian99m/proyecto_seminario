@@ -1,9 +1,8 @@
 var mongoose = require("mongoose");
 require("../modelo/registroModel");
 require("../modelo/usuarioModel");
-const dateFormat = require('dateformat');
 
-var usuarioModel = mongoose.model("Usuario");
+
 var registroModel = mongoose.model("Registro");
 var controladoValidar = require("./ValidarControldor");
 var usuarioControlador = require("./usuarioControlador");

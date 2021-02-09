@@ -9,9 +9,6 @@ const dateFormat = require('dateformat');
 require('dotenv').config();
 
 
-console.log(dateFormat(new Date(), "d/m/yy HH:MM p"));
-console.log(new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' }));
-
 var app = express();
 
 app.use(bodyparser.json());
@@ -25,7 +22,7 @@ app.listen(port,host,() => {
 });
 
 
-mongoose.connect(process.env.DB_URL,  { useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true })
 var db = mongoose.connection
 
 db.on('error', function(err){
