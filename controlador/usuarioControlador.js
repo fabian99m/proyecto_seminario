@@ -16,7 +16,7 @@ exports.addUsuario = function (req, callback) {
             if (err) callback({ estado: { codigo: 2, respuesta: "Error al guardar!" } });
               callback({estado: { codigo: 1, respuesta: "Usuario guardado con éxito!" },usuario: retorno,});
           });
-        } else {callback({estado: { codigo: 2, respuesta: "Usuario ya registrado!!" },});}
+        } else {callback({estado: { codigo: 2, respuesta: "Usuario ya está registrado!!" },});}
       }).catch(() => {console.log("Algo salió mal");});  
 };
 

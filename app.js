@@ -6,16 +6,9 @@ var mongoose = require("mongoose");
 var controladorUsuario = require("./controlador/usuarioControlador");
 var controladorRegistro = require("./controlador/registroControlador");
 const dateFormat = require('dateformat');
-var { DateTime } = require('luxon');
-
-
-
-
-
 require('dotenv').config();
 
 
-console.log(process.env.DB_URL);
 console.log(dateFormat(new Date(), "d/m/yy HH:MM p"));
 console.log(new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' }));
 
@@ -28,7 +21,7 @@ const port = process.env.PORT || 3000;
 const host = process.env.HOST || '0.0.0.0';
 
 app.listen(port,host,() => {
-  console.log("hola muundo puerto 3000");
+  console.log("Servidor works!");
 });
 
 
@@ -42,7 +35,6 @@ db.on('error', function(err){
 db.once('open', function(){
   console.log('Conectado a la base de datos con éxito!')
 })
-
 
 var router = express.Router();
 
