@@ -11,7 +11,7 @@ exports.addUsuario = function (req, callback) {
     objUsuario.fechaCreacion = new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' });
     
     controladoValidar.ValidarUser(objUsuario.cedula).then((res) => {
-        if (res == 0) {
+        if (!res) {
             objUsuario.save(function (err, retorno) {
             if (err) callback({ estado: { codigo: 2, respuesta: "Error al guardar!" } });
               callback({estado: { codigo: 1, respuesta: "Usuario guardado con éxito!" },usuario: retorno,});

@@ -4,9 +4,11 @@ var mongoose = require("mongoose");
 
 var usuarioModel = mongoose.model("Usuario");
 
+usuarioModel.exists
+
 exports.ValidarUser=function (cedula) {
-    return new Promise((resolve, reject) => {
-      usuarioModel.countDocuments({ cedula: cedula }, function (err, res) {
+  return new Promise((resolve, reject) => {
+      usuarioModel.exists({ cedula: cedula }, function (err, res) {
         if (!res) resolve(0);
         else if (err) reject(err);
         else return resolve(res);

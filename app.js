@@ -5,7 +5,6 @@ var methodoverride = require("method-override");
 var mongoose = require("mongoose");
 var controladorUsuario = require("./controlador/usuarioControlador");
 var controladorRegistro = require("./controlador/registroControlador");
-const dateFormat = require('dateformat');
 require('dotenv').config();
 
 
@@ -16,7 +15,6 @@ app.use(methodoverride());
 
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || '0.0.0.0';
-
 app.listen(port,host,() => {
   console.log("Servidor works!");
 });
