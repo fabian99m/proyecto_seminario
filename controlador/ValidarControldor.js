@@ -4,8 +4,6 @@ var mongoose = require("mongoose");
 
 var usuarioModel = mongoose.model("Usuario");
 
-usuarioModel.exists
-
 exports.ValidarUser=function (cedula) {
   return new Promise((resolve, reject) => {
       usuarioModel.exists({ cedula: cedula }, function (err, res) {
